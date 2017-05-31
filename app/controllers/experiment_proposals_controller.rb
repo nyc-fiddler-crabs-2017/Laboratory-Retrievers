@@ -1,4 +1,5 @@
 class ExperimentProposalsController < ApplicationController
+  include UsersHelper
   def index
     @experiment_proposals = ExperimentProposal.order('created_at DESC')
   end
@@ -23,6 +24,6 @@ class ExperimentProposalsController < ApplicationController
 
   private
     def experiment_proposal_params
-      params.require(:experiment_proposal).permit(:title, :summary, :hyopothesis)
+      params.require(:experiment_proposal).permit(:title, :summary, :hypothesis)
     end
 end
