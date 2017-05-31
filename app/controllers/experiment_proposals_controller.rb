@@ -1,0 +1,2 @@
+class ExperimentProposalsController < ApplicationController
+end
