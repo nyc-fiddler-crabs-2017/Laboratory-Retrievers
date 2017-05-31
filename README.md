@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Calling all laboratory technicians!
 
-Things you may want to cover:
+This is our app that lets fellow experimenters work on various proposals, and allowing them to keep track of all ideas and implementations.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+WE ARE:
+- Alejandro Camacho
+- Alexandra Hill
+- Alex Persaud
+- Brent Unkrich
+- Thomas Feng
