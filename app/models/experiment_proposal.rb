@@ -3,4 +3,6 @@ class ExperimentProposal < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :commentable
   has_many :observations, as: :observable
+
+  validates :title, :summary, :hypothesis, :status, :user, :presence => true
 end
