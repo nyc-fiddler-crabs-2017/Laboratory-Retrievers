@@ -1,0 +1,9 @@
+<h1>Experiment Proposals</h1>
+
+<div>
+  <ul>
+    <% @experiment_proposals.each do |ep| %>
+      <p><%= link_to ep.title, ep %></p>
+    <% end %>
+  </ul>
+</div>
