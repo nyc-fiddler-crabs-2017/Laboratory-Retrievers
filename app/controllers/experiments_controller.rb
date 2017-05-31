@@ -6,10 +6,11 @@ class ExperimentsController < ApplicationController
 
   def new
     @experiment = Experiment.new
+    @experiment_proposal = Experiment_Proposal.find(params[:experiment_proposal_id])
   end
 
   def create
-    @experiment = Experiment.new(params[:experiment])
+    @experiment = current_user.experiments.new(params[:experiment])
 
     if experiment.save
       redirect_to experiments_path
