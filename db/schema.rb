@@ -10,19 +10,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531145340) do
+ActiveRecord::Schema.define(version: 20170531152159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text     "body",             null: false
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.integer  "user_id",          null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "experiment_proposals", force: :cascade do |t|
+    t.string   "title",                       null: false
+    t.text     "summary",                     null: false
+    t.text     "hypothesis",                  null: false
+    t.string   "status",     default: "Open", null: false
+    t.integer  "user_id",                     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["user_id"], name: "index_experiment_proposals_on_user_id", using: :btree
+  end
+
+  create_table "experiments", force: :cascade do |t|
+    t.text     "result"
+    t.text     "conclusion"
+    t.string   "status",                 default: "Open", null: false
+    t.integer  "experiment_proposal_id",                  null: false
+    t.integer  "user_id",                                 null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.index ["experiment_proposal_id"], name: "index_experiments_on_experiment_proposal_id", using: :btree
+    t.index ["user_id"], name: "index_experiments_on_user_id", using: :btree
+  end
+
+  create_table "observations", force: :cascade do |t|
+    t.text     "body",            null: false
+    t.string   "observable_type"
+    t.integer  "observable_id"
+    t.integer  "user_id",         null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["observable_type", "observable_id"], name: "index_observations_on_observable_type_and_observable_id", using: :btree
+    t.index ["user_id"], name: "index_observations_on_user_id", using: :btree
+  end
+
+  create_table "procedures", force: :cascade do |t|
+    t.text     "body",          null: false
+    t.integer  "step",          null: false
+    t.integer  "experiment_id", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["experiment_id"], name: "index_procedures_on_experiment_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
+    t.string   "first_name",      null: false
+    t.string   "last_name",       null: false
+    t.string   "username",        null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "comments", "users"
+  add_foreign_key "experiment_proposals", "users"
+  add_foreign_key "experiments", "experiment_proposals"
+  add_foreign_key "experiments", "users"
+  add_foreign_key "observations", "users"
+  add_foreign_key "procedures", "experiments"
 end
