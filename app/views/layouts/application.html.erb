@@ -10,8 +10,8 @@
 
   <body>
     <nav>
-      <a href="/">Home</a>
       <% if current_user %>
+        <a href="/">Home</a>
         <a href="#"><%=current_user.username%></a>
         <a href="/users/logout">Logout</a>
       <% else %>
