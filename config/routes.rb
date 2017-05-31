@@ -11,6 +11,21 @@ Rails.application.routes.draw do
   
   get '/users/:id', to: 'users#show'
 
-  resources :experiment_proposals
+
+#   resources :experiment_proposal do
+#     get '/experiment_proposal/:experiment_proposal_id/experiments', to: 'experiments#index'
+#     get '/experiment_proposal/:experiment_proposal_id/experiments/new', to: 'experiments#new'
+#     post '/experiment_proposal/:experiment_proposal_id/experiments', to: 'experiments#create'
+#     get '/experiment_proposal/:experiment_proposal_id/experiments/:id', to: 'experiments#show'
+#     get '/experiment_proposal/:experiment_proposal_id/experiments/:id/edit', to: 'experiments#edit'
+#     put '/experiment_proposal/:experiment_proposal_id/experiments/:id', to: 'experiments#update'
+#     delete '/experiment_proposal/:experiment_proposal_id/experiments/:id', to: 'experiments#destroy'
+#   end
+
+  resources :experiment_proposals do
+    resources :experiments  
+  end
+  
+
 
 end

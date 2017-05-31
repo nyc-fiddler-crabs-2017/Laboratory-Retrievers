@@ -1,0 +1,11 @@
+<h1>Experiments</h1>
+
+<ul>
+<% @experiments.each do |experiment| %>
+  <li><%= experiment.status %></li>
+  <li><%= experiment.result %></li>
+  <li><%= experiment.conclusion %></li>
+  <li><%= link_to 'Edit',edit_experiment_proposal_experiment_path(experiment) %></li>
+  <li><%= link_to 'Delete',experiment_proposal_experiment_path(experiment), method: :delete %></li>
+<% end %>
+</ul>
