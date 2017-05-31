@@ -1,0 +1,9 @@
+<h1>Experiments</h1>
+
+<ul>
+<% @experiments.each do |experiment| %>
+  <li><%= experiment.status %></li>
+  <li><%= experiment.result %></li>
+  <li><%= experiment.conclusion %></li>
+<% end %>
+</ul>
