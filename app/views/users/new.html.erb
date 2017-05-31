@@ -1,0 +1,23 @@
+<%= form_tag("/users", method: "post") do %>
+
+  <%= label_tag(:first_name, "First Name:") %>
+  <%= text_field_tag(:first_name) %>
+  <br>
+
+  <%= label_tag(:last_name, "Last Name:") %>
+  <%= text_field_tag(:last_name) %>
+  <br>
+
+  <%= label_tag(:email, "Email") %>
+  <%= text_field_tag(:email) %>
+  <br>
+
+  <%= label_tag(:username, "Choose a username:") %>
+  <%= text_field_tag(:username) %>
+  <br>
+
+  <%= label_tag(:password, "Choose a password: ") %>
+  <%= password_field_tag(:password) %>
+
+  <%= submit_tag("Register") %>
+<% end %>
