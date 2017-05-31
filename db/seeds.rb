@@ -10,15 +10,15 @@ require 'faker'
 
 user1 = User.create(first_name: "Alex", last_name: "Xela", username: "alex", email: "alex@laboratory_retrievers.edu", password: "password")
 user1.experiment_proposals.create(title: "Best Candy", summary: "We need to test all the candy in the store to find the best one.", hypothesis: "All candy is good.")
-user1.experiments.create(experiment_proposal_id: 1, result: "Unknown Results", conclusion: "All candy is good.")
+user1.experiments.create(experiment_proposal_id: 1, result: "Unknown Results", conclusion: "All candy is good.", title: "I Solemnly Swear I am up to No Good")
 
 10.times do
   user = User.create(first_name: Faker::Internet.user_name, last_name: Faker::Hipster.word, username: Faker::HarryPotter.character, email: Faker::Internet.email, password: "password")
   10.times do
-    exp = user.experiment_proposals.create(title: Faker::HarryPotter.quote, summary: Faker::Hipster.sentence, hypothesis: Faker::Hipster.paragraph)
+    exp_p = user.experiment_proposals.create(title: Faker::HarryPotter.quote, summary: Faker::Hipster.sentence, hypothesis: Faker::Hipster.paragraph)
     10.times do
-      exp.comments.create(body: Faker::Hipster.sentence, user_id: rand(1..10))
-      exp.observations.create(body: Faker::Hipster.sentence, user_id: rand(1..10))
+      exp_p.comments.create(body: Faker::Hipster.sentence, user_id: rand(1..10))
+      exp_p.observations.create(body: Faker::Hipster.sentence, user_id: rand(1..10))
     end
   end
 end

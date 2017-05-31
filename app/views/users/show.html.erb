@@ -1,0 +1,7 @@
+<h1>Welcome</h1>
+<ul>
+  <% @experiment_proposals.each do |proposal| %>
+  <li><%=link_to proposal.title, proposal%></li>
+  <% end %>
+
+</ul>
