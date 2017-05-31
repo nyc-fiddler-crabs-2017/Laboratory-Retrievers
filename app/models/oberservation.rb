@@ -1,0 +1,2 @@
+class Oberservation < ApplicationRecord
+end
