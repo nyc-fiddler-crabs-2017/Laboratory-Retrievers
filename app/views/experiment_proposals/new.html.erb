@@ -1,7 +1,13 @@
 <h1>New Experiment Proposal</h1>
 
 <div>
-
+  <ul>
+    <% if @errors %>
+      <% @errors.each do |error| %>
+        <%= error %>
+      <% end %>
+    <% end %>
+  </ul>
 </div>
 
 <div>
