@@ -12,10 +12,11 @@ class ExperimentProposalsController < ApplicationController
   end
 
   def create
-      @experiment_proposal = ExperimentProposal.new(experiment_proposal_params)
+      @experiment_proposal = current_user.experiment_proposals.new(experiment_proposal_params)
       if @experiment_proposal.save
         redirect_to @experiment_proposal
       else
+        @errors = @experiment_proposal.errors.full_messages
         render :new
       end
   end
