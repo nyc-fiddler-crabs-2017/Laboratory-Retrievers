@@ -11,7 +11,7 @@
   <body>
     <nav>
       <% if current_user %>
-        <a href="/experiments">Home</a>
+        <a href="/experiment_proposals">Home</a>
         <a href="/users/<%=current_user.id%>"><%=current_user.username%></a>
         <a href="/users/logout">Logout</a>
       <% else %>

@@ -1,19 +1,19 @@
 class ExperimentsController < ApplicationController
-
+  include UsersHelper
   def index
     @experiments = Experiment.all
   end
 
   def new
+    @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
     @experiment = Experiment.new
-    @experiment_proposal = Experiment_Proposal.find(params[:experiment_proposal_id])
   end
 
   def create
-    @experiment = current_user.experiments.new(params[:experiment])
 
-    if experiment.save
-      redirect_to experiments_path
+    @experiment = current_user.experiments.new(experiment_params)
+    if @experiment.save
+      redirect_to @experiment.experiment_proposal
     else
       render 'experiments#new'
     end
@@ -25,6 +25,7 @@ class ExperimentsController < ApplicationController
 
   def edit
     @experiment = Experiment.find(params[:id])
+    @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
   end
 
   def update
@@ -41,6 +42,10 @@ class ExperimentsController < ApplicationController
     @experiment.destroy
 
     redirect_to experiments_path
+  end
+  private
+  def experiment_params
+    params.require(:experiment).permit(:title, :result, :conclusion, :status, :experiment_proposal_id)
   end
 
 end
