@@ -22,7 +22,8 @@
       <h3>Experiments</h3>
       <ul>
         <% @experiment_proposal.experiments.each do |experiment| %>
-          <p><%= link_to experiment.title, experiment_proposal_experiment_path(@experiment_proposal, experiment) %></p>
+          <span><li><%= link_to experiment.title, experiment_proposal_experiment_path(@experiment_proposal, experiment) %>
+          | Created By: <%= experiment.user.username %></li></span>
         <% end %>
       </ul>
     </div>
