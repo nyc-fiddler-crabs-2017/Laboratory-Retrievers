@@ -11,6 +11,7 @@ class ProceduresController < ApplicationController
     if @procedure.save
       redirect_to "/experiment_proposals/#{@experiment_proposal.id}/experiments/#{@experiment.id}"
     else
+      @errors = @procedure.errors.full_messages
       render 'new'
     end
   end
@@ -26,9 +27,9 @@ class ProceduresController < ApplicationController
 
   def destroy
   end
-end
 
   private
   def procedure_params
     params.require(:procedure).permit(:body, :step, :experiment_id)
   end
+end

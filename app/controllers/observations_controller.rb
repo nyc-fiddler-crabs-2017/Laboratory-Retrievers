@@ -9,7 +9,6 @@ class ObservationsController < ApplicationController
   def create
     @experiment = Experiment.find_by(id: params[:experiment_id])
     @observation = @experiment.observations.new(body: params[:observation][:body], user_id: current_user.id)
-    byebug
     if @observation.save
       redirect_to 'experiment_proposal_experiment'
     else
@@ -20,7 +19,6 @@ class ObservationsController < ApplicationController
   def show
     @observation = Observation.find(params[:id])
   end
-
 
   def edit
     @observation = Observation.find(params[:id])
@@ -39,5 +37,4 @@ class ObservationsController < ApplicationController
     @observation = Observation.find(params[:id])
     @observation.destroy
   end
-
 end

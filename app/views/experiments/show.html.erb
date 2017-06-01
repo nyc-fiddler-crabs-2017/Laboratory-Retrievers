@@ -1,4 +1,3 @@
-
 <div>
   <h1><%= @experiment.experiment_proposal.title %></h1>
   <p>Proposed by: <%= @experiment.experiment_proposal.user.username %></p>
@@ -32,7 +31,7 @@
   <div>
     <h3>Comments:</h3>
     <ul>
-      <%= @experiment.comments.each do |c| %>
+      <% @experiment.comments.each do |c| %>
         <li><%= c.body %> by: <%= c.user.username%></li>
         <% end %>
     </ul>
@@ -43,7 +42,7 @@
   <div>
     <h3>Observations:</h3>
     <ul>
-      <%= @experiment.observations.each do |o| %>
+      <% @experiment.observations.each do |o| %>
         <li><%= o.body %> by: <%= o.user.username%></li>
       <% end %>
     </ul>
@@ -54,7 +53,7 @@
   <div>
     <h3>Procedures:</h3>
     <ul>
-      <%= @experiment.procedures.each do |p| %>
+      <% @experiment.procedures.each do |p| %>
         <li>Step <%= p.step %>. <%= p.body %></li>
       <% end %>
     </ul>
@@ -68,7 +67,3 @@
   <%= link_to "Create an Observation", new_experiment_proposal_experiment_observation_path(@experiment.experiment_proposal, @experiment) %>
   <%= link_to "Add Steps", "/experiments/#{@experiment.id}/procedures/new" %>
 </div>
-
-
-
-
