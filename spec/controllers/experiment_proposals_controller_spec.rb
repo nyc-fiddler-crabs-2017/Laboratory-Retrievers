@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe ExperimentProposalsController do
-  let!(:proposal) { Experiment_Proposals.create!(title: "MY EXP", summary: "make shit work", hypothesis: "it will work", user_id: 1) }
+  let!(:proposal) { ExperimentProposal.create!(title: "MY EXP", summary: "make shit work", hypothesis: "it will work", user_id: 1) }
 
   describe "GET experiment_proposals#new" do
     it "responds with status code 200" do
