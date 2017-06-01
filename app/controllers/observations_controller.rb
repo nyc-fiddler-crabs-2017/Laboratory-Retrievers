@@ -10,7 +10,7 @@ class ObservationsController < ApplicationController
     @experiment = Experiment.find_by(id: params[:experiment_id])
     @observation = @experiment.observations.new(body: params[:observation][:body], user_id: current_user.id)
     if @observation.save
-      redirect_to 'experiment_proposal_experiment'
+      redirect_to "/experiment_proposals/#{@experiment.experiment_proposal_id}/experiments/#{@experiment.id}"
     else
       redirect_to 'observation#new'
     end
