@@ -1,6 +1,8 @@
 class ObservationsController < ApplicationController
 
   def new
+    @experiment = Experiment.find_by(id: params[:experiment_id])
+    @experiment_proposal = @experiment.experiment_proposal
     @observation = Observation.new
   end
 

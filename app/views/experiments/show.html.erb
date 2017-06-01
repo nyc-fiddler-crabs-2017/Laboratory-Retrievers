@@ -1,3 +1,4 @@
+
 <div>
   <h1><%= @experiment.experiment_proposal.title %></h1>
   <p>Proposed by: <%= @experiment.experiment_proposal.user.username %></p>
@@ -64,4 +65,6 @@
   <button>Add Comments</button> <button>Add Procedures</button> <button>Add Observations</button>
   <p><%= link_to 'Edit', edit_experiment_proposal_experiment_path %></p>
   <p><%= link_to("Destroy", experiment_proposal_experiment_path, method: :delete)%></p>
+  <%= link_to "Create an Observation", new_experiment_proposal_experiment_observation_path(@experiment.experiment_proposal, @experiment) %>
 </div>
+
