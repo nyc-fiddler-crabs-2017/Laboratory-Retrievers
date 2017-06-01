@@ -7,6 +7,7 @@ class ExperimentsController < ApplicationController
   def new
     unauthorized
     @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
+    redirect_to "/experiment_proposals/#{@experiment_proposal.id}" if @experiment_proposal.status == "Closed"
     @experiment = Experiment.new
   end
 
@@ -16,7 +17,7 @@ class ExperimentsController < ApplicationController
     if @experiment.save
       redirect_to action: "show", id: @experiment.id
     else
-      @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
+      @experiment_proposal = ExperimentProposal.find_by(id: params[:experiment_proposal_id])
       @experiment = Experiment.new
       render 'new'
     end
@@ -24,18 +25,21 @@ class ExperimentsController < ApplicationController
 
   def show
     unauthorized
-    @experiment = Experiment.find(params[:id])
+    @experiment = Experiment.find_by(id:params[:id])
+    @experiment_proposal = ExperimentProposal.find_by(id: params[:experiment_proposal_id])
+    redirect_to "/experiment_proposals" unless @experiment && @experiment_proposal
   end
 
   def edit
     unauthorized
-    @experiment = Experiment.find(params[:id])
-    @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
+    @experiment = Experiment.find_by(id: params[:id])
+    @experiment_proposal = ExperimentProposal.find_by(id: params[:experiment_proposal_id])
+    redirect_to "/experiment_proposals" unless @experiment && @experiment_proposal
   end
 
   def update
     unauthorized
-    @experiment = Experiment.find(params[:id])
+    @experiment = Experiment.find_by(id: params[:id])
     puts @experiment
     if @experiment.update_attributes(experiment_params)
       redirect_to action: "show", id: @experiment.id

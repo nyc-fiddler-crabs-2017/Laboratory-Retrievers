@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to "/users/#{current_user.id}"
     else
-      @errors = ["We do not have that email and password combination on file"]
+      @errors = ["We do not have that username and password combination on file."]
       render 'login'
     end
   end

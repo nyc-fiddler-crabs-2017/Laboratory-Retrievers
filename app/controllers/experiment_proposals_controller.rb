@@ -8,6 +8,7 @@ class ExperimentProposalsController < ApplicationController
   def show
     unauthorized
     @experiment_proposal = ExperimentProposal.find_by(id: params[:id])
+    redirect_to "/experiment_proposals" unless @experiment_proposal
   end
 
   def new
@@ -17,6 +18,7 @@ class ExperimentProposalsController < ApplicationController
   def edit
     unauthorized
       @experiment_proposal = ExperimentProposal.find_by(id: params[:id])
+      redirect_to "/experiment_proposals" unless @experiment_proposal
   end
 
   def create
