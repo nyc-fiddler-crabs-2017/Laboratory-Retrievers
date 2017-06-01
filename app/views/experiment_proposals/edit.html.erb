@@ -21,8 +21,13 @@
     <p><%= f.text_area :hypothesis %></p>
   </div>
   <div>
-    <p><%= f.label 'Status' %></p>
+    <!-- <p><%= f.label 'Status' %></p>
     <p><%= f.text_area :status %></p>
+    <select>
+      <option value="open">Open</option>
+      <option value="closed">Closed</option>
+    </select> -->
+    <%= f.select :status, options_for_select([['Open'], ['Closed']]) %>
   </div>
   <div>
     <p><%= f.submit'Edit Proposal' %><p>
