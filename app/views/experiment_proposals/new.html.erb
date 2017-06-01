@@ -10,9 +10,10 @@
   </ul>
 </div>
 
-<div>
+<div class="form">
 <%= form_for :experiment_proposal, url: { action: "create" } do |f| %>
   <div>
+
     <p><%= f.label 'Title' %></p>
     <p><%= f.text_field :title, size: 100 %></p>
   </div>
@@ -23,9 +24,10 @@
   <div>
     <p><%= f.label 'Hypothesis' %></p>
     <p><%= f.text_area :hypothesis, cols: 100, rows: 7 %></p>
+
   </div>
   <div>
-    <p><%= f.submit'Create Proposal' %><p>
+    <%= f.submit'Create Proposal' %>
   </div>
 <% end %>
 </div>

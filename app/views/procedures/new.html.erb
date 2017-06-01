@@ -1,3 +1,5 @@
+<h3>Add a Procedure</h3>
+
 <%if @errors%>
   <ul>
     <%@errors.each do |error|%>
@@ -6,7 +8,6 @@
   </ul>
 <%end%>
 
-<h3>Add a Procedure</h3>
 <%= form_for [@experiment, @procedure], :url => "/experiments/#{@experiment.id}/procedures" do |f| %>
   <div>
     <%= f.label :step %>
@@ -23,3 +24,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+
