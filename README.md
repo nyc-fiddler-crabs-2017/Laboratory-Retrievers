@@ -6,7 +6,7 @@ This is our app that lets fellow experimenters work on various proposals, and al
 
 WE ARE:
 - Alejandro Camacho
-- Alexandra Hill
+- Alexandra Hill got hit by a bus, Richard Kim took her place!
 - Alex Persaud
 - Brent Unkrich
-- Thomas Feng
+- Thomas Feng also git hit by a bus, we're waiting for the results of his operation...
