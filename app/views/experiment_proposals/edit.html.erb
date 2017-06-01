@@ -27,7 +27,7 @@
       <option value="open">Open</option>
       <option value="closed">Closed</option>
     </select> -->
-    <%= f.select :status, options_for_select([['Open'], ['Closed']]) %>
+    <%= f.select :status, options_for_select([['Open'], ['Closed']], selected: @experiment_proposal.status) %>
   </div>
   <div>
     <p><%= f.submit'Edit Proposal' %><p>
