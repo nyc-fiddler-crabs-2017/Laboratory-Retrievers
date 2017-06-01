@@ -7,11 +7,12 @@ class ObservationsController < ApplicationController
   end
 
   def create
-    @observation = Observation.new(params[:observation])
+    @observation = current_user.observations.new(body: params[:observation][:body])
+    byebug
     if @observation.save
-        redirect_to @observation.observable
+      redirect_to 'experiment_proposal_experiment'
     else
-      render 'observation#new'
+      redirect_to 'observation#new'
     end
   end
 
