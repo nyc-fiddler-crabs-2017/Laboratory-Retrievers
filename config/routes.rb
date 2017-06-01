@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   post '/users', to: 'users#create'
   post '/users/login', to: 'users#authenticate'
-  
+
   get '/users/:id', to: 'users#show'
 
 
@@ -23,9 +23,11 @@ Rails.application.routes.draw do
 #   end
 
   resources :experiment_proposals do
-    resources :experiments  
+    resources :experiments
   end
-  
 
-
+  get '/experiments/:id/comments/new', to: 'comments#new'
+  post '/experiments/:id/comments', to: 'comments#create'
+  get '/experiment_proposals/:id/comments/new', to: 'comments#new'
+  post '/experiment_proposals/:id/comments', to: 'comments#create'
 end
