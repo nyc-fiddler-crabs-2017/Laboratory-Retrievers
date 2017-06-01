@@ -35,11 +35,12 @@ Rails.application.routes.draw do
 #   end
 
   resources :experiment_proposals do
-    resources :experiments
+    resources :experiments do
+      resources :observations, only: [:index, :create, :new]
+    end
   end
 
 
-  resources :observations
 
 
 

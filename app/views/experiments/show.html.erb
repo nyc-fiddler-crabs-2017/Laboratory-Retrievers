@@ -1,15 +1,18 @@
 <p>
-<h1><%= @experiment.title %></h1>
+  <h1><%= @experiment.title %></h1>
 </p>
 
 <p>
-<%= @experiment.result %>
+  <%= @experiment.result %>
 </p>
 
 <p>
-<%= @experiment.conclusion %>
+  <%= @experiment.conclusion %>
 </p>
 
 <p>
-<%= @experiment.status %>
+  <%= @experiment.status %>
 </p>
+
+
+<%= link_to "Create an Observation", new_experiment_proposal_experiment_observation_path(@experiment.experiment_proposal, @experiment) %>
