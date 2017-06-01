@@ -5,5 +5,5 @@ class Experiment < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :observations, as: :observable
 
-  validates :result, :user, :conclusion, :status, :experiment_proposal, :presence => true
+  validates :user, :status, :experiment_proposal, :presence => true
 end
