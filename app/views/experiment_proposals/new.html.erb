@@ -10,22 +10,22 @@
   </ul>
 </div>
 
-<div>
+<div class="form">
 <%= form_for :experiment_proposal, url: { action: "create" } do |f| %>
   <div>
-    <p><%= f.label 'Title' %></p>
-    <p><%= f.text_field :title %></p>
+    <%= f.label 'Title' %>
+    <%= f.text_field :title %>
   </div>
   <div>
-    <p><%= f.label 'Summary' %></p>
-    <p><%= f.text_area :summary %></p>
+    <%= f.label 'Summary' %>
+    <%= f.text_area :summary %>
   </div>
   <div>
-    <p><%= f.label 'Hypothesis' %></p>
-    <p><%= f.text_area :hypothesis %></p>
+    <%= f.label 'Hypothesis' %>
+    <%= f.text_area :hypothesis %>
   </div>
   <div>
-    <p><%= f.submit'Create Proposal' %><p>
+    <%= f.submit'Create Proposal' %>
   </div>
 <% end %>
 </div>

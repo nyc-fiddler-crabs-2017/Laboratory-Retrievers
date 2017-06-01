@@ -64,6 +64,7 @@
   <% end %>
 
   <div class="buttons">
+    <button class="btn btn-default"><%= link_to "View Proposal", experiment_proposal_path(@experiment.experiment_proposal) %></button>
     <button class="btn btn-default"><%= link_to 'Edit Experiment', edit_experiment_proposal_experiment_path %></button>
     <button class="btn btn-default"><%= link_to("Delete Experiment", experiment_proposal_experiment_path, method: :delete) %></button>
     <button class="btn btn-default"><%= link_to "Create an Observation", new_experiment_proposal_experiment_observation_path(@experiment.experiment_proposal, @experiment) %></button>
