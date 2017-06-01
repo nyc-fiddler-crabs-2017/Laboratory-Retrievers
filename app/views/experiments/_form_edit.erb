@@ -14,7 +14,7 @@
     </div>
     <div>
       <%= f.label :status %>
-      <%= f.text_field :status %>
+      <%= f.select(:status, ['Open', 'In Progress', 'Closed'], {})%>
     </div>
     <div>
       <%= f.hidden_field :experiment_proposal_id, :value => @experiment_proposal.id %>
