@@ -66,5 +66,9 @@
   <p><%= link_to 'Edit', edit_experiment_proposal_experiment_path %></p>
   <p><%= link_to("Destroy", experiment_proposal_experiment_path, method: :delete)%></p>
   <%= link_to "Create an Observation", new_experiment_proposal_experiment_observation_path(@experiment.experiment_proposal, @experiment) %>
+  <%= link_to "Add Steps", "/experiments/#{@experiment.id}/procedures/new" %>
 </div>
+
+
+
 

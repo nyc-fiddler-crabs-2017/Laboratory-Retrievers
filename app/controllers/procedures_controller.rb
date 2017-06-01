@@ -1,15 +1,15 @@
 class ProceduresController < ApplicationController
   def new
-    @experiment = Experiment.find(params[:experiment_id])
-
-    render 'new'
+    @experiment = Experiment.find_by(id: params[:experiment_id])
+    @procedure = Procedure.new
   end
 
   def create
     @experiment = Experiment.find(params[:experiment_id])
+    @experiment_proposal = @experiment.experiment_proposal
     @procedure = @experiment.procedures.new(procedure_params)
     if @procedure.save
-      redirect_to experiment_proposal_experiment_path(@experiment)
+      redirect_to "/experiment_proposals/#{@experiment_proposal.id}/experiments/#{@experiment.id}"
     else
       render 'new'
     end
