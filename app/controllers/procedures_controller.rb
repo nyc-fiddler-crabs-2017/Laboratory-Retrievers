@@ -2,7 +2,7 @@ class ProceduresController < ApplicationController
   def new
     @experiment = Experiment.find(params[:experiment_id])
 
-    render 'procedures/_new'
+    render 'new'
   end
 
   def create
@@ -11,7 +11,7 @@ class ProceduresController < ApplicationController
     if @procedure.save
       redirect_to experiment_proposal_experiment_path(@experiment)
     else
-      render 'procedures/_new'
+      render 'new'
     end
   end
 
