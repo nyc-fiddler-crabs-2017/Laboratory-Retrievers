@@ -7,29 +7,26 @@
     <% end %>
   </ul>
 </div>
-<%= form_for @experiment_proposal do |f| %>
-  <div>
-    <p><%= f.label 'Title' %></p>
-    <p><%= f.text_field :title %></p>
+
+<div class="form">
+  <%= form_for @experiment_proposal do |f| %>
+    <div>
+      <p><%= f.label 'Title' %></p>
+      <p><%= f.text_field :title %></p>
+    </div>
+    <div>
+      <p><%= f.label 'Summary' %></p>
+      <p><%= f.text_area :summary %></p>
+    </div>
+    <div>
+      <p><%= f.label 'Hypothesis' %></p>
+      <p><%= f.text_area :hypothesis %></p>
+    </div>
+    <div>
+      <%= f.select :status, options_for_select([['Open'], ['Closed']], selected: @experiment_proposal.status) %>
+    </div>
+    <div>
+      <p><%= f.submit'Edit Proposal' %><p>
   </div>
-  <div>
-    <p><%= f.label 'Summary' %></p>
-    <p><%= f.text_area :summary %></p>
-  </div>
-  <div>
-    <p><%= f.label 'Hypothesis' %></p>
-    <p><%= f.text_area :hypothesis %></p>
-  </div>
-  <div>
-    <!-- <p><%= f.label 'Status' %></p>
-    <p><%= f.text_area :status %></p>
-    <select>
-      <option value="open">Open</option>
-      <option value="closed">Closed</option>
-    </select> -->
-    <%= f.select :status, options_for_select([['Open'], ['Closed']], selected: @experiment_proposal.status) %>
-  </div>
-  <div>
-    <p><%= f.submit'Edit Proposal' %><p>
+  <% end %>
 </div>
-<% end %>
