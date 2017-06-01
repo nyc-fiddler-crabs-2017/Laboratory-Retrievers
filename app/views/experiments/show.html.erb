@@ -62,9 +62,9 @@
   <% end %>
 
   <div class="buttons">
-    <button><%= link_to 'Edit Experiment', edit_experiment_proposal_experiment_path %></button>
-    <button><%= link_to("Delete Experiment", experiment_proposal_experiment_path, method: :delete) %></button>
-    <button><%= link_to "Create an Observation", new_experiment_proposal_experiment_observation_path(@experiment.experiment_proposal, @experiment) %></button>
-    <button><%= link_to "Add a Procedure", "/experiments/#{@experiment.id}/procedures/new" %></button>
+    <button class="btn btn-default"><%= link_to 'Edit Experiment', edit_experiment_proposal_experiment_path %></button>
+    <button class="btn btn-default"><%= link_to("Delete Experiment", experiment_proposal_experiment_path, method: :delete) %></button>
+    <button class="btn btn-default"><%= link_to "Create an Observation", new_experiment_proposal_experiment_observation_path(@experiment.experiment_proposal, @experiment) %></button>
+    <button class="btn btn-default"><%= link_to "Add a Procedure", "/experiments/#{@experiment.id}/procedures/new" %></button>
   </div>
 </div>
