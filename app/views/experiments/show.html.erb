@@ -33,7 +33,8 @@
       <h3>Comments:</h3>
       <ul>
         <% @experiment.comments.each do |c| %>
-          <li><%= c.body %> by: <%= c.user.username %></li>
+          <li><%= c.body %></li>
+          <p>Comment By: <%= c.user.username %></p>
           <% end %>
       </ul>
     </div>
@@ -44,7 +45,8 @@
       <h3>Observations:</h3>
       <ul>
         <% @experiment.observations.each do |o| %>
-          <li><%= o.body %> by: <%= o.user.username %></li>
+          <li><%= o.body %></li>
+          <p>Observed By: <%= o.user.username %></p>
         <% end %>
       </ul>
     </div>
