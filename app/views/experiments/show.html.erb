@@ -1,15 +1,70 @@
-<p>
-<h1><%= @experiment.title %></h1>
-</p>
 
-<p>
-<%= @experiment.result %>
-</p>
+<div>
+  <h1><%= @experiment.experiment_proposal.title %></h1>
+  <p>Proposed by: <%= @experiment.experiment_proposal.user.username %></p>
+</div>
 
-<p>
-<%= @experiment.conclusion %>
-</p>
+<div>
+  <h2>Experiment: <%= @experiment.title %></h2>
+  <p>By: <%= @experiment.user.username %></p>
+</div>
 
-<p>
-<%= @experiment.status %>
-</p>
+<% if @experiment.result %>
+  <div>
+    <h3>Results:</h3>
+    <p><%= @experiment.result %></p>
+  </div>
+<% end %>
+
+<% if @experiment.conclusion %>
+  <div>
+    <h3>Conclusion:</h3>
+    <p><%= @experiment.conclusion %></p>
+  </div>
+<% end %>
+
+<div>
+  <h3>Status:</h3>
+  <p><%= @experiment.status %></p>
+</div>
+
+<% if @experiment.comments.count > 0  %>
+  <div>
+    <h3>Comments:</h3>
+    <ul>
+      <%= @experiment.comments.each do |c| %>
+        <li><%= c.body %> by: <%= c.user.username%></li>
+        <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if @experiment.observations.count > 0  %>
+  <div>
+    <h3>Observations:</h3>
+    <ul>
+      <%= @experiment.observations.each do |o| %>
+        <li><%= o.body %> by: <%= o.user.username%></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if @experiment.procedures.count > 0  %>
+  <div>
+    <h3>Procedures:</h3>
+    <ul>
+      <%= @experiment.procedures.each do |p| %>
+        <li>Step <%= p.step %>. <%= p.body %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div>
+  <button>Add Comments</button> <button>Add Procedures</button> <button>Add Observations</button>
+  <p><%= link_to 'Edit', edit_experiment_proposal_experiment_path %></p>
+  <p><%= link_to("Destroy", experiment_proposal_experiment_path, method: :delete)%></p>
+  <%= link_to "Create an Observation", new_experiment_proposal_experiment_observation_path(@experiment.experiment_proposal, @experiment) %>
+</div>
+

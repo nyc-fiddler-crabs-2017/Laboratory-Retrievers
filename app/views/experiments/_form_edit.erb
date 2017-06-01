@@ -4,6 +4,18 @@
     <%= f.text_field :title %>
   </div>
   <div>
+    <%= f.label :results %>
+    <%= f.text_area :result %>
+  </div>
+  <div>
+    <%= f.label :conclusion %>
+    <%= f.text_area :conclusion %>
+  </div>
+  <div>
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+  <div>
     <%= f.hidden_field :experiment_proposal_id, :value => @experiment_proposal.id %>
     <%= f.submit %>
   </div>

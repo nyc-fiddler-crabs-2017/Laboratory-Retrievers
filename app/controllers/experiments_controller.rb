@@ -15,7 +15,9 @@ class ExperimentsController < ApplicationController
     if @experiment.save
       redirect_to @experiment.experiment_proposal
     else
-      render 'experiments#new'
+      @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
+      @experiment = Experiment.new
+      render 'new'
     end
   end
 
@@ -30,8 +32,9 @@ class ExperimentsController < ApplicationController
 
   def update
     @experiment = Experiment.find(params[:id])
-    if @experiment.update
-      redirect_to @experiment
+    puts @experiment
+    if @experiment.update_attributes(experiment_params)
+      redirect_to action: "show", id: @experiment.id
     else
       render 'edit'
     end
@@ -39,10 +42,11 @@ class ExperimentsController < ApplicationController
 
   def destroy
     @experiment = Experiment.find(params[:id])
+    @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
     @experiment.destroy
-
-    redirect_to experiments_path
+    redirect_to @experiment_proposal
   end
+
   private
   def experiment_params
     params.require(:experiment).permit(:title, :result, :conclusion, :status, :experiment_proposal_id)
