@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  # get 'procedures/new'
+
+  # get 'procedures/create'
+
+  # get 'procedures/show'
+
+  # get 'procedures/edit'
+
+  # get 'procedures/update'
+
+  # get 'procedures/destroy'
+
   root "users#login"
 
   get '/users/login', to: 'users#login'
@@ -26,7 +38,22 @@ Rails.application.routes.draw do
     resources :experiments
   end
 
+
   resources :observations
 
 
+
+
+  get '/experiments/:experiment_id/procedures/new', to: 'procedures#new'
+  post '/experiments/:experiment_id/procedures', to: 'procedures#create'
+  get '/experiments/:experiment_id/procedures/:id', to: 'procedures#show'
+  get '/experiments/:experiment_id/procedures/:id/edit', to: 'procedures#edit'
+  put '/experiments/:experiment_id/procedures/:id', to: 'procedures#update'
+  delete '/experiments/:experiment_id/procedures/:id', to: 'procedures#destroy'
+
+
+  get '/experiments/:id/comments/new', to: 'comments#new'
+  post '/experiments/:id/comments', to: 'comments#create'
+  get '/experiment_proposals/:id/comments/new', to: 'comments#new'
+  post '/experiment_proposals/:id/comments', to: 'comments#create'
 end

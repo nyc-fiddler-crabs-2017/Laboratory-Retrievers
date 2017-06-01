@@ -1,0 +1,20 @@
+<h3>Add a Procedure</h3>
+
+<%= form_for [@experiment, @experiment.procedures.build], url: { action: "create" } do |f| %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_field :body %><br>
+  </p>
+  <p>
+    <%= f.label :step %><br>
+    <%= f.number_field :step %><br>
+  </p>
+
+  <p>
+    <%= f.hidden_field :experiment_id, :value => @experiment.id %><br>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+  <% end %>
