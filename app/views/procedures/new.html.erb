@@ -10,7 +10,7 @@
 <%= form_for [@experiment, @procedure], :url => "/experiments/#{@experiment.id}/procedures" do |f| %>
   <div>
     <%= f.label :step %>
-    <%= f.select :step, (1..100) %>
+    <%= f.select :step, (@experiment.procedures.count+1..100) %>
   </div>
   <div>
     <%= f.label :body %>
