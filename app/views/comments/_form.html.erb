@@ -1,0 +1,10 @@
+<%= form_for [@experiment_proposal, @comment] do |f| %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_field :body %><br>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+  <% end %>

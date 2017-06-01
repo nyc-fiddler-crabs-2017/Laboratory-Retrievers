@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Experiment_ProposalsController do
+describe 'Experiment_ProposalsController' do
   let!(:proposal) { Experiment_Proposals.create!(title: "MY EXP", summary: "make shit work", hypothesis: "it will work", user_id: 1) }
 
   describe "GET experiment_proposals#new" do

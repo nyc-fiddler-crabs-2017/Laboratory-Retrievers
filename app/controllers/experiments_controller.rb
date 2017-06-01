@@ -15,7 +15,9 @@ class ExperimentsController < ApplicationController
     if @experiment.save
       redirect_to @experiment.experiment_proposal
     else
-      render 'experiments#new'
+      @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
+      @experiment = Experiment.new
+      render 'new'
     end
   end
 
