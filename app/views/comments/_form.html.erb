@@ -1,7 +1,7 @@
 <%= form_for [@experiment_proposal, @comment] do |f| %>
   <p>
     <%= f.label :body %><br>
-    <%= f.text_field :body %><br>
+    <%= f.text_field :body, size: 100 %><br>
   </p>
 
   <p>

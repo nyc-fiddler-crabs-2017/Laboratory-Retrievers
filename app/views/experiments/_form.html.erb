@@ -2,7 +2,7 @@
   <%= form_for [@experiment_proposal, @experiment] do |f| %>
     <div>
       <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, size: 100 %>
     </div>
     <div>
       <%= f.hidden_field :experiment_proposal_id, :value => @experiment_proposal.id %>

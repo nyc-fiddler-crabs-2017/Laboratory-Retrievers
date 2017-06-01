@@ -14,7 +14,7 @@
   </div>
   <div>
     <%= f.label :body %>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, size: 100 %>
   </div>
   <div>
     <%= f.hidden_field :experiment_id, :value => @experiment.id %>

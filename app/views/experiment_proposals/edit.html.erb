@@ -7,18 +7,20 @@
     <% end %>
   </ul>
 </div>
-<%= form_for @experiment_proposal do |f| %>
-  <div>
+
+
+<%= form_for @experiment_proposal, :html => {:class => ""} do |f| %>
+  <div class="field">
     <p><%= f.label 'Title' %></p>
-    <p><%= f.text_field :title %></p>
+    <p><%= f.text_field :title, size: 100 %></p>
   </div>
-  <div>
+  <div class="field">
     <p><%= f.label 'Summary' %></p>
-    <p><%= f.text_area :summary %></p>
+    <p><%= f.text_area :summary, cols: 100, rows: 10 %></p>
   </div>
-  <div>
+  <div class="field">
     <p><%= f.label 'Hypothesis' %></p>
-    <p><%= f.text_area :hypothesis %></p>
+    <p><%= f.text_area :hypothesis, cols: 100, rows: 8 %></p>
   </div>
   <div>
     <!-- <p><%= f.label 'Status' %></p>
