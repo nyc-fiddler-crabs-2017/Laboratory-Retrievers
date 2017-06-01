@@ -1,10 +1,12 @@
 class ProceduresController < ApplicationController
   def new
+    unauthorized
     @experiment = Experiment.find_by(id: params[:experiment_id])
     @procedure = Procedure.new
   end
 
   def create
+    unauthorized
     @experiment = Experiment.find(params[:experiment_id])
     @experiment_proposal = @experiment.experiment_proposal
     @procedure = @experiment.procedures.new(procedure_params)
@@ -14,18 +16,6 @@ class ProceduresController < ApplicationController
       @errors = @procedure.errors.full_messages
       render 'new'
     end
-  end
-
-  def show
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private

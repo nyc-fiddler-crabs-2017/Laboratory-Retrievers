@@ -5,15 +5,16 @@ class ExperimentsController < ApplicationController
   end
 
   def new
+    unauthorized
     @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
     @experiment = Experiment.new
   end
 
   def create
-
+    unauthorized
     @experiment = current_user.experiments.new(experiment_params)
     if @experiment.save
-      redirect_to @experiment.experiment_proposal
+      redirect_to action: "show", id: @experiment.id
     else
       @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
       @experiment = Experiment.new
@@ -22,15 +23,18 @@ class ExperimentsController < ApplicationController
   end
 
   def show
+    unauthorized
     @experiment = Experiment.find(params[:id])
   end
 
   def edit
+    unauthorized
     @experiment = Experiment.find(params[:id])
     @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
   end
 
   def update
+    unauthorized
     @experiment = Experiment.find(params[:id])
     puts @experiment
     if @experiment.update_attributes(experiment_params)
@@ -41,6 +45,7 @@ class ExperimentsController < ApplicationController
   end
 
   def destroy
+    unauthorized
     @experiment = Experiment.find(params[:id])
     @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
     @experiment.destroy

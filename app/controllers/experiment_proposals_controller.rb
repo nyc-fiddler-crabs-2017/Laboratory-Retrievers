@@ -1,10 +1,12 @@
 class ExperimentProposalsController < ApplicationController
   include UsersHelper
   def index
+    unauthorized
     @experiment_proposals = ExperimentProposal.order('created_at DESC')
   end
 
   def show
+    unauthorized
     @experiment_proposal = ExperimentProposal.find_by(id: params[:id])
   end
 
@@ -13,10 +15,12 @@ class ExperimentProposalsController < ApplicationController
   end
 
   def edit
+    unauthorized
       @experiment_proposal = ExperimentProposal.find_by(id: params[:id])
   end
 
   def create
+    unauthorized
       @experiment_proposal = current_user.experiment_proposals.new(experiment_proposal_params)
       if @experiment_proposal.save
         redirect_to @experiment_proposal
@@ -27,6 +31,7 @@ class ExperimentProposalsController < ApplicationController
   end
 
   def update
+    unauthorized
       @experiment_proposal = ExperimentProposal.find_by(id: params[:id])
       if @experiment_proposal.update(experiment_proposal_params)
         redirect_to @experiment_proposal
@@ -37,6 +42,7 @@ class ExperimentProposalsController < ApplicationController
   end
 
   def destroy
+    unauthorized
     @experiment_proposal = ExperimentProposal.find_by(id: params[:id])
     @experiment_proposal.destroy
 

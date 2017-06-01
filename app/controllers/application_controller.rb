@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def unauthorized
+    unless logged_in?
+      @errors = ["You need to be logged in to enter."]
+      render 'users/login'
+    end
+  end
+
+  helper_method :unauthorized
   helper_method :current_user
   helper_method :logged_in?
 
