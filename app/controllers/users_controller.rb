@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], username: params[:username], password: params[:password])
     if user.save
       session[:user_id] = user.id
-      redirect_to '/experiments'
+      redirect_to '/experiment_proposals'
     else
       @errors = user.errors.full_messages
       render 'new'

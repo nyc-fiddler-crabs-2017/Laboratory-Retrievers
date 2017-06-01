@@ -1,0 +1,31 @@
+<h1>New Experiment Proposal</h1>
+
+<div>
+  <ul>
+    <% if @errors %>
+      <% @errors.each do |error| %>
+        <%= error %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+<%= form_for :experiment_proposal, url: { action: "create" } do |f| %>
+  <div>
+    <p><%= f.label 'Title' %></p>
+    <p><%= f.text_field :title %></p>
+  </div>
+  <div>
+    <p><%= f.label 'Summary' %></p>
+    <p><%= f.text_area :summary %></p>
+  </div>
+  <div>
+    <p><%= f.label 'Hypothesis' %></p>
+    <p><%= f.text_area :hypothesis %></p>
+  </div>
+  <div>
+    <p><%= f.submit'Create Proposal' %><p>
+  </div>
+<% end %>
+</div>
