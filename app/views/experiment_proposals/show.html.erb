@@ -26,7 +26,7 @@
 
   <ul>
   <% @experiment_proposal.experiments.each do |experiment| %>
-      <p><%= link_to experiment.title, experiment %></p>
+      <p><%= link_to experiment.title, experiment_proposal_experiment_path(@experiment_proposal, experiment) %></p>
   <% end %>
   </ul>
 </div>
