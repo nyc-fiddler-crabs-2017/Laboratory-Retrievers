@@ -1,5 +1,7 @@
 <h1><%= @experiment_proposal.title %></h1>
-
+<div>
+  <p><%= link_to "Edit", edit_experiment_proposal_path %></p>
+</div>
 <div>
   <div>
     <h3>Status</h3>
@@ -24,9 +26,7 @@
 
   <ul>
   <% @experiment_proposal.experiments.each do |experiment| %>
-      <p><%= link_to experiment.title, experiment_proposal_experiment_path(@experiment_proposal, experiment) %></p>
+      <p><%= link_to experiment.title, experiment %></p>
   <% end %>
   </ul>
 </div>
-
-<%= link_to "New Comment", "/experiment_proposals/#{@experiment_proposal.id}/comments/new" %>
