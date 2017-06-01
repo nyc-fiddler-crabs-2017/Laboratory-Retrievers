@@ -1,11 +1,16 @@
-<h1>Experiment Proposals</h1>
+<div class="top-info">
+  <h1>Experiment Proposals</h1>
+</div>
 
-<p><%= link_to 'Add a Proposal', new_experiment_proposal_path %></p>
+<div class="buttons">
+  <button class="btn btn-default"><%= link_to 'Add a Proposal', new_experiment_proposal_path %></button>
+</div>
 
-<div>
+<div class="show-info">
   <ul>
     <% @experiment_proposals.each do |ep| %>
-      <p><%= link_to ep.title, ep %></p>
+      <span><p><%= link_to ep.title, ep %>
+      | Created By: <%= ep.user.username %></p></span>
     <% end %>
   </ul>
 </div>
