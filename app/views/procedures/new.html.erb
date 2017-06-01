@@ -8,21 +8,20 @@
   </ul>
 <%end%>
 
-<div class="form">
-  <%= form_for [@experiment, @procedure], :url => "/experiments/#{@experiment.id}/procedures" do |f| %>
-    <div>
-      <%= f.label :step %>
-      <%= f.select :step, (@experiment.procedures.count+1..100) %>
-    </div>
-    <div>
-      <%= f.label :body %>
-      <%= f.text_area :body %>
-    </div>
-    <div>
-      <%= f.hidden_field :experiment_id, :value => @experiment.id %>
-    </div>
-    <div>
-      <%= f.submit %>
-    </div>
-  <% end %>
-</div>
+<%= form_for [@experiment, @procedure], :url => "/experiments/#{@experiment.id}/procedures" do |f| %>
+  <div>
+    <%= f.label :step %>
+    <%= f.select :step, (@experiment.procedures.count+1..100) %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body, size: 100 %>
+  </div>
+  <div>
+    <%= f.hidden_field :experiment_id, :value => @experiment.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+

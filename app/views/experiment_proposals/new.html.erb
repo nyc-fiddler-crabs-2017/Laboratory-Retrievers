@@ -13,16 +13,18 @@
 <div class="form">
 <%= form_for :experiment_proposal, url: { action: "create" } do |f| %>
   <div>
-    <%= f.label 'Title' %>
-    <%= f.text_field :title %>
+
+    <p><%= f.label 'Title' %></p>
+    <p><%= f.text_field :title, size: 100 %></p>
   </div>
   <div>
-    <%= f.label 'Summary' %>
-    <%= f.text_area :summary %>
+    <p><%= f.label 'Summary' %></p>
+    <p><%= f.text_area :summary, cols: 100, rows: 10 %></p>
   </div>
   <div>
-    <%= f.label 'Hypothesis' %>
-    <%= f.text_area :hypothesis %>
+    <p><%= f.label 'Hypothesis' %></p>
+    <p><%= f.text_area :hypothesis, cols: 100, rows: 7 %></p>
+
   </div>
   <div>
     <%= f.submit'Create Proposal' %>
