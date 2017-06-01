@@ -12,6 +12,10 @@ class ExperimentProposalsController < ApplicationController
 
   end
 
+  def edit
+      @experiment_proposal = ExperimentProposal.find_by(id: params[:id])
+  end
+
   def create
       @experiment_proposal = current_user.experiment_proposals.new(experiment_proposal_params)
       if @experiment_proposal.save
@@ -22,8 +26,25 @@ class ExperimentProposalsController < ApplicationController
       end
   end
 
+  def update
+      @experiment_proposal = ExperimentProposal.find_by(id: params[:id])
+      if @experiment_proposal.update(experiment_proposal_params)
+        redirect_to @experiment_proposal
+      else
+        @errors = @experiment_proposal.errors.full_messages
+        render :edit
+      end
+  end
+
+  def destroy
+    @experiment_proposal = ExperimentProposal.find_by(id: params[:id])
+    @experiment_proposal.destroy
+
+    redirect_to experiment_proposals_path
+  end
+
   private
     def experiment_proposal_params
-      params.require(:experiment_proposal).permit(:title, :summary, :hypothesis)
+      params.require(:experiment_proposal).permit(:title, :summary, :hypothesis, :status)
     end
 end
