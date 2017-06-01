@@ -22,12 +22,14 @@
   <%= link_to 'Add an Experiment', new_experiment_proposal_experiment_path(@experiment_proposal) %>
 </div>
 
-<div>
-  <h3>Experiments</h3>
+<% if @experiment_proposal.experiments.count > 0  %>
+  <div>
+    <h3>Experiments</h3>
 
-  <ul>
-  <% @experiment_proposal.experiments.each do |experiment| %>
-      <p><%= link_to experiment.title, experiment_proposal_experiment_path(@experiment_proposal, experiment) %></p>
-  <% end %>
-  </ul>
-</div>
+    <ul>
+    <% @experiment_proposal.experiments.each do |experiment| %>
+        <p><%= link_to experiment.title, experiment_proposal_experiment_path(@experiment_proposal, experiment) %></p>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
