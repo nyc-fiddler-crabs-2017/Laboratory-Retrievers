@@ -1,12 +1,10 @@
 <%= form_for [@experiment_proposal, @experiment] do |f| %>
-
-  <p>
+  <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
-  </p>
-
-  <p>
+  </div>
+  <div>
     <%= f.hidden_field :experiment_proposal_id, :value => @experiment_proposal.id %>
     <%= f.submit %>
-  </p>
+  </div>
 <% end %>
