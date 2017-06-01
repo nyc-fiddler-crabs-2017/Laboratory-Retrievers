@@ -39,6 +39,10 @@ Rails.application.routes.draw do
   end
 
 
+  resources :observations
+
+
+
 
   get '/experiments/:experiment_id/procedures/new', to: 'procedures#new'
   post '/experiments/:experiment_id/procedures', to: 'procedures#create'
