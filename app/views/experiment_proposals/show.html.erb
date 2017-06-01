@@ -19,7 +19,9 @@
 </div>
 
 <div>
-  <%= link_to 'Add an Experiment', new_experiment_proposal_experiment_path(@experiment_proposal) %>
+  <% if @experiment_proposal.status == "Open" %>
+    <%= link_to 'Add an Experiment', new_experiment_proposal_experiment_path(@experiment_proposal) %>
+  <% end %>
 </div>
 
 <div>
