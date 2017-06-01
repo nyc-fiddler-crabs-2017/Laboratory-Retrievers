@@ -1,0 +1,30 @@
+<div>
+  <ul>
+    <% if @errors %>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+<%= form_for @experiment_proposal do |f| %>
+  <div>
+    <p><%= f.label 'Title' %></p>
+    <p><%= f.text_field :title %></p>
+  </div>
+  <div>
+    <p><%= f.label 'Summary' %></p>
+    <p><%= f.text_area :summary %></p>
+  </div>
+  <div>
+    <p><%= f.label 'Hypothesis' %></p>
+    <p><%= f.text_area :hypothesis %></p>
+  </div>
+  <div>
+    <p><%= f.label 'Status' %></p>
+    <p><%= f.text_area :status %></p>
+  </div>
+  <div>
+    <p><%= f.submit'Edit Proposal' %><p>
+</div>
+<% end %>
