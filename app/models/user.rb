@@ -8,4 +8,7 @@ class User < ApplicationRecord
 
   validates :username, :first_name, :last_name, :email, :presence => true
   validates :email, :username, :uniqueness => true
+
+  validates_format_of :email, with: /\@dbc\.com/, message: ' :You should have an email address from @dbc.com.'
+  validates :password, length: { minimum: 6 }
 end
