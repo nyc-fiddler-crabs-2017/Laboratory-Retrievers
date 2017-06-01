@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170531152159) do
   end
 
   create_table "experiments", force: :cascade do |t|
+    t.string   "title",                                   null: false
     t.text     "result"
     t.text     "conclusion"
     t.string   "status",                 default: "Open", null: false
