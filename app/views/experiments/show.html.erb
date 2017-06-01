@@ -44,7 +44,8 @@
       <h3>Observations:</h3>
       <ul>
         <% @experiment.observations.each do |o| %>
-          <li><%= o.body %> by: <%= o.user.username %></li>
+          <li><%= o.body %></li>
+          <p>Observed By: <%= o.user.username %></p>
         <% end %>
       </ul>
     </div>
