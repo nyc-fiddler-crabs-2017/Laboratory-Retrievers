@@ -42,10 +42,11 @@ class ExperimentsController < ApplicationController
 
   def destroy
     @experiment = Experiment.find(params[:id])
+    @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
     @experiment.destroy
-
-    redirect_to experiments_path
+    redirect_to @experiment_proposal
   end
+
   private
   def experiment_params
     params.require(:experiment).permit(:title, :result, :conclusion, :status, :experiment_proposal_id)
