@@ -48,4 +48,8 @@ Rails.application.routes.draw do
   delete '/experiments/:experiment_id/procedures/:id', to: 'procedures#destroy'
 
 
+  get '/experiments/:id/comments/new', to: 'comments#new'
+  post '/experiments/:id/comments', to: 'comments#create'
+  get '/experiment_proposals/:id/comments/new', to: 'comments#new'
+  post '/experiment_proposals/:id/comments', to: 'comments#create'
 end
