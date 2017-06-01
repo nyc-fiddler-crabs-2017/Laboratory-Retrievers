@@ -1,28 +1,23 @@
 <h2>form EDIT partial</h2>
 <%= form_for [@experiment_proposal, @experiment] do |f| %>
   <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %><br>
-  </p>
-
-  <p>
-    <%= f.label :result %><br>
-    <%= f.text_field :result %><br>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :conclusion %><br>
-    <%= f.text_field :conclusion %><br>
+    <%= f.label :result %>
+    <%= f.text_field :result %>
   </p>
   <p>
-    <%= f.label :status %><br>
-    <%= f.text_field :status %><br>
+    <%= f.label :conclusion %>
+    <%= f.text_field :conclusion %>
   </p>
   <p>
-    <%= f.label :experiment_proposal_id %><br>
-    <%= f.hidden_field :experiment_proposal_id, :value => @experiment_proposal.id %><br>
+    <%= f.label :status %>
+    <%= f.text_field :status %>
   </p>
-
   <p>
+    <%= f.hidden_field :experiment_proposal_id, :value => @experiment_proposal.id %>
     <%= f.submit %>
   </p>
 <% end %>

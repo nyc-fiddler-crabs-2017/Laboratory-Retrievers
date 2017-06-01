@@ -26,18 +26,15 @@ class ExperimentsController < ApplicationController
   end
 
   def edit
-    # puts "*********EDIT EDIT EDIT*******"
     @experiment = Experiment.find(params[:id])
     @experiment_proposal = ExperimentProposal.find(params[:experiment_proposal_id])
   end
 
   def update
     @experiment = Experiment.find(params[:id])
-    # puts "****************"
     puts @experiment
-    # puts "****************"
     if @experiment.update_attributes(experiment_params)
-      redirect_to :back
+      redirect_to action: "show", id: @experiment.id
     else
       render 'edit'
     end
