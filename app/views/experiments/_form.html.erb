@@ -1,27 +1,12 @@
 <%= form_for [@experiment_proposal, @experiment] do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %><br>
-  </p>
-  <p>
-    <%= f.label :result %><br>
-    <%= f.text_field :result %><br>
-  </p>
-  <p>
-    <%= f.label :conclusion %><br>
-    <%= f.text_field :conclusion %><br>
-  </p>
-  <p>
-    <%= f.label :status %><br>
-    <%= f.text_field :status %><br>
-  </p>
-  <p>
-    <%= f.label :experiment_proposal_id %><br>
-    <%= f.hidden_field :experiment_proposal_id, :value => @experiment_proposal.id %><br>
-  </p>
-
 
   <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.hidden_field :experiment_proposal_id, :value => @experiment_proposal.id %>
     <%= f.submit %>
   </p>
 <% end %>
